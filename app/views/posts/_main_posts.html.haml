@@ -1,0 +1,57 @@
+.main-posts
+  
+  .main-posts__side-bar
+    .main-posts__side-bar__user
+      %img.main-posts__side-bar__user__icon{src: current_user.image }
+      .main-posts__side-bar__user__myuser
+        %span.main-posts__side-bar__user__myuser__text
+          = current_user.nickname
+      .main-posts__side-bar__user__font
+        %a.font__edit
+          = link_to "/users/#{current_user.id}" do
+            %i.fas.fa-user
+        %a.font__cog
+          = link_to destroy_user_session_path, method: :delete do
+            %i.fas.fa-sign-out-alt
+        %a.font__edit
+          = link_to "users/edit" do
+            %i.fas.fa-cog
+        %a.font__cog
+          = link_to "posts/new" do
+            %i.fas.fa-edit
+    
+    %p.main-posts__side-bar__rank
+      Ranking
+
+    .main-posts__side-bar__posts
+      - @all_ranks.each.with_index(1) do |post, i|
+        .main-posts__side-bar__posts__post
+          .main-posts__side-bar__posts__post__like
+            ❤️
+            =post.likes_count
+          .main-posts__side-bar__posts__post__image{:style => "background-image: url(#{post.image});"}
+          %a.main-posts__side-bar__posts__post__text= simple_format(post.text)
+          .main-posts__side-bar__posts__post__show= link_to '詳細', "/posts/#{post.id}", method: :get
+              
+                
+  .main-posts__post
+    - @posts.each do |post|
+      .main-posts__post__detail
+        .main-posts__post__detail__more
+          %img.main-posts__post__detail__more__image{src: post.user.image }
+          .main-posts__post__detail__more__nickname=link_to "#{post.user.nickname}","/users/#{post.user.id}"
+        .main-posts__post__detail__edit
+          %ul.main-posts__post__detail__edit__list
+            %li
+              = link_to '詳細', "/posts/#{post.id}", method: :get
+          - if user_signed_in? && current_user.id == post.user_id
+            %li
+              = link_to '編集', "/posts/#{post.id}/edit", method: :get
+            %li
+              = link_to '削除', "/posts/#{post.id}", method: :delete
+        .main-posts__post__detail__image{:style => "background-image: url(#{post.image});"}
+        %a.main-posts__post__detail__text= post.text
+        .main-posts__post__detail__likes
+          = render 'likes/like', post: post
+    = paginate(@posts)
+

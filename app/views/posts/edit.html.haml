@@ -1,0 +1,15 @@
+.container
+  = form_with(model: @post, local: true) do |form|
+    %h3
+      編集する
+    %br
+    %ul
+      %h1 image URL
+      %li= form.text_field :image, placeholder: "Image Url"
+      %br
+      %h1 title
+      %li= form.text_area :text, placeholder: "text"
+      %br
+      %h1 contents
+      %li= form.text_area :content, placeholder: "content" , rows: "10"
+      %li= form.submit "SEND"

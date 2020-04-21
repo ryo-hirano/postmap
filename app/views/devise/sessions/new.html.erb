@@ -1,0 +1,36 @@
+<div class="contents-row">
+  <video src="/movie/Clothing.mp4" width="640" height="360" autoplay muted loop playsinline></video>
+  <h1>Fashion Blog</h1>
+  <h2>あなたのファッションを共有しよう。</h2>
+  <div class="cont">
+  <div class="cont-inner">
+    <h2>Sign in</h2><br>
+    <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field-checkbox">
+          <%= f.label :remember_me %><br />
+          <%= f.check_box :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+      <a href="/users/sign_up">
+        <%= "sign up" %>
+      </a>
+    <% end %>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.contents_post
+  .contents_post__title
+    = @post.text
+  .contents_post__posts{:style => "background-image: url(#{@post.image});"}
+  .contents_post__date
+    = @post.created_at
+  .contents_post__text
+    =simple_format @post.content
+  .contents_post__comment
+    = form_with(model: [@post, @comment], local: true) do |form|
+      = form.text_area :text, placeholder: "コメントする", rows: "2"
+      = form.submit "SEND"
+  .contents_post__comments
+    %h4 ＜コメント一覧＞
+    - if @comments
+      - @comments.each do |comment|
+        %p
+          %strong
+            = link_to comment.user.nickname, "/users/#{comment.user_id}"
+          = comment.text
+  %a.btn{:href => "/"} 投稿一覧へ戻る
+
+
+
+
