@@ -1,0 +1,26 @@
+.slick-prev.slick-arrow{
+  background-image: image-url("prev.png");
+  background-size: cover;
+}
+
+.slick-next.slick-arrow{
+  background-image: url("next.png");
+  background-size: cover;
+}
+
+.slick-contents{
+  width: 1080px;
+  height: 300px;
+  margin: 0 auto;
+  .slick{
+    .posts{
+      height: 300px;
+      img{
+        width: 358px;
+        height: 300px;
+        margin: 0 auto;
+        background-size: cover;
+      }
+    }
+  }
+}
