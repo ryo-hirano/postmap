@@ -4,20 +4,22 @@
     さんの投稿一覧
     - @posts.each do |post|
       .main-posts__post__detail
-        .main-posts__post__detail__more
-          %img.main-posts__post__detail__more__image{src: post.user.image }
-          .main-posts__post__detail__more__nickname=link_to "#{post.user.nickname}","/users/#{post.user.id}"
         .main-posts__post__detail__edit
           %ul.main-posts__post__detail__edit__list
-            %li
-              = link_to '詳細', "/posts/#{post.id}", method: :get
           - if user_signed_in? && current_user.id == post.user_id
             %li
               = link_to '編集', "/posts/#{post.id}/edit", method: :get
             %li
               = link_to '削除', "/posts/#{post.id}", method: :delete
         .main-posts__post__detail__image{:style => "background-image: url(#{post.image});"}
-        %a.main-posts__post__detail__text= post.text
-        .main-posts__post__detail__likes
-          = render 'likes/like', post: post
+        .more-contents
+          =link_to "#{post.text}","/posts/#{post.id}"
+          %ul.like-create-tags
+            %li.like
+              = render 'likes/like', post: post
+            %li.create
+              %p(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
+            %li.tags
+              %p
+                ファッション
   %a.btn{:href => "/"} 投稿一覧へ戻る

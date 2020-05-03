@@ -1,4 +1,33 @@
 .main-posts
+  .main-posts__post
+    .post-title
+      %ul.title
+        %li.subtitle
+          Posts
+        %li.mini
+          %p
+            ポスト
+
+    - @posts.each do |post|
+      .main-posts__post__detail
+        %ul.main-posts__post__detail__more
+          %li.nickname
+            =link_to "#{post.user.nickname}","/users/#{post.user.id}"
+          %li.text
+            %p さんのポスト
+        .main-posts__post__detail__image{:style => "background-image: url(#{post.image});"}
+        .more-contents
+          =link_to "#{post.text}","/posts/#{post.id}"
+          %ul.like-create-tags
+            %li.like
+              = render 'likes/like', post: post
+            %li.create
+              %p(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
+            %li.tags
+              %p
+                ファッション
+
+    = paginate(@posts)
   
   .main-posts__side-bar
     .main-posts__side-bar__user
@@ -20,8 +49,9 @@
           = link_to "posts/new" do
             %i.fas.fa-edit
     
-    %p.main-posts__side-bar__rank
-      Ranking
+    .main-posts__side-bar__rank
+      %h2.title
+        Ranking
 
     .main-posts__side-bar__posts
       - @all_ranks.each.with_index(1) do |post, i|
@@ -32,26 +62,14 @@
           .main-posts__side-bar__posts__post__image{:style => "background-image: url(#{post.image});"}
           %a.main-posts__side-bar__posts__post__text= simple_format(post.text)
           .main-posts__side-bar__posts__post__show= link_to '詳細', "/posts/#{post.id}", method: :get
-              
-                
-  .main-posts__post
-    - @posts.each do |post|
-      .main-posts__post__detail
-        .main-posts__post__detail__more
-          %img.main-posts__post__detail__more__image{src: post.user.image }
-          .main-posts__post__detail__more__nickname=link_to "#{post.user.nickname}","/users/#{post.user.id}"
-        .main-posts__post__detail__edit
-          %ul.main-posts__post__detail__edit__list
-            %li
-              = link_to '詳細', "/posts/#{post.id}", method: :get
-          - if user_signed_in? && current_user.id == post.user_id
-            %li
-              = link_to '編集', "/posts/#{post.id}/edit", method: :get
-            %li
-              = link_to '削除', "/posts/#{post.id}", method: :delete
-        .main-posts__post__detail__image{:style => "background-image: url(#{post.image});"}
-        %a.main-posts__post__detail__text= post.text
-        .main-posts__post__detail__likes
-          = render 'likes/like', post: post
-    = paginate(@posts)
+
+    .main-posts__side-bar__collections
+      =link_to "#", {class: "collection"} do
+        .title
+          %h2.subtitle
+            BestSnap
+          %p.user-name
+            Take
+        =image_tag(asset_path("snap.jpg"), {class: "snap"})
+
 

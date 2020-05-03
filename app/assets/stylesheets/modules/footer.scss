@@ -1,0 +1,26 @@
+.footer {
+  padding: 60px 0;
+  color: #fff;
+  background-color: #2a2b2a;
+  text-align: center;
+  .contents {
+    display: flex;
+    justify-content: center;
+    .content {
+      margin: 0 70px;
+      display: flex;
+      flex-direction: column;
+      &__head {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      &__list {
+        font-size: 12px;
+        li {
+          margin-bottom: 15px;
+        } 
+      }
+    }
+  }
+}

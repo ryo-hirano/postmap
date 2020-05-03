@@ -1,0 +1,25 @@
+.main-posts__side-bar__collections{
+  width: 300px;
+  height: 600px;
+  .collection{
+    width: 300px;
+    height: 600px;
+    text-decoration: none;
+    color: black;
+    .title{
+      width: 300px;
+      height: 90px;
+      border-bottom: 1px solid black;
+      margin-bottom: 10px;
+      text-align: center;
+      h2.subtitle{
+        padding-top: 30px;
+        font-size: 20px;
+      }
+    }
+    .snap{
+      width: 300px;
+      height: 500px;
+    }
+  }
+}

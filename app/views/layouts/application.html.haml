@@ -9,6 +9,50 @@
     %link{href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", rel: "stylesheet", type: "text/css"}/
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %script{ type: "text/javascript", src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"}
-
   %body
+    .top-bar
+      .top-bar__serch
+        = form_with(url: search_posts_path, local: true, method: :get, class: "search_container") do |form|
+          = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
+          = form.submit class: "search-btn", value: "👠"
+
+      .top-bar__top
+        %p.top__title 
+          Fashion Blog
+      %ul.top-bar__charm
+        %li.charm__icon1
+          = link_to '#' do
+            %i.fab.fa-instagram
+        %li.charm__icon2
+          = link_to '#' do
+            %i.fab.fa-facebook-square
+        %li.charm__icon3
+          = link_to '#' do
+            %i.fab.fa-twitter-square
     = yield
+
+    .footer
+      %ul.contents
+        %li.content
+          %h2.content__head
+            Fashion Blogについて
+          %ul.content__list
+            %li
+              = link_to root_path do
+                Fashion Blogとは
+            %li
+              = link_to root_path do
+                プライバシーポリシー
+            %li
+              = link_to root_path do
+                FURIMA利用規約
+        %li.content
+          %h2.content__head
+            ヘルプ&ガイド
+          %ul.content__list
+            %li
+              = link_to root_path do
+                FURIMAガイド
+            %li
+              = link_to root_path do
+                FURIMAロゴ利用ガイドライン

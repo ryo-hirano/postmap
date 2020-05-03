@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(20)
+    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(13)
     @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 
@@ -54,5 +54,5 @@ class PostsController < ApplicationController
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
-
+  
 end
