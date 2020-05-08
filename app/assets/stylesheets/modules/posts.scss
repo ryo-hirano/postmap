@@ -291,10 +291,12 @@ body{
             }
           }
           li.tags{
-            p{
-              margin-top: 12px;
-              font-size: 12px;
-              padding-left: 5px;
+            .bar-thery{
+              padding-top: 8px;
+              a{
+                font-size: 12px;
+                padding-left: 5px;
+              }
             }
           }
         }

@@ -7,6 +7,7 @@
         %li.mini
           %p
             ポスト
+        %li
 
     - @posts.each do |post|
       .main-posts__post__detail
@@ -24,8 +25,11 @@
             %li.create
               %p(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
             %li.tags
-              %p
-                ファッション
+              - @parents.each do |parent|
+                - if post.category_id == parent.id
+                  .bar-thery
+                    = link_to "#", class:"thery-field", id: "bar-d" do
+                      = parent.name 
 
     = paginate(@posts)
   

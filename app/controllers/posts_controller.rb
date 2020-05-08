@@ -3,12 +3,28 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(13)
+    @posts = Post.includes(:user, :category).order("created_at DESC").page(params[:page]).per(13)
     @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+    @parents = Category.all.order("id ASC").limit(100)
   end
 
   def new
     @post = Post.new
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+    end
+  end
+
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+ # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -44,7 +60,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :text, :content).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, :text, :content, :category_id).merge(user_id: current_user.id)
   end
 
   def set_post
