@@ -11,7 +11,7 @@
               = link_to '編集', "/posts/#{post.id}/edit", method: :get
             %li
               = link_to '削除', "/posts/#{post.id}", method: :delete
-        .main-posts__post__detail__image{:style => "background-image: url(#{post.image});"}
+        .main-posts__post__detail__image{:style => "background-image: url(#{post.images.first.src.url});"}
         .more-contents
           =link_to "#{post.text}","/posts/#{post.id}"
           %ul.like-create-tags

@@ -11,7 +11,7 @@
       - @post_food.each do |post|
         .list
           = link_to "/posts/#{post.id}" do
-            %figure.list-img{:style => "background-image: url(#{post.image});"}
+            %figure.list-img{:style => "background-image: url(#{post.images.first.src.url});"}
               .post-text
                 %p.text
                   =post.text
@@ -29,7 +29,7 @@
       - @post_fashion.each do |post|
         .list
           = link_to "/posts/#{post.id}" do
-            %figure.list-img{:style => "background-image: url(#{post.image});"}
+            %figure.list-img{:style => "background-image: url(#{post.images.first.src.url});"}
               .post-text
                 %p.text
                   =post.text

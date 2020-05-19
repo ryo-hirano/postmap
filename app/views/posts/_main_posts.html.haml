@@ -16,7 +16,7 @@
             =link_to "#{post.user.nickname}","/users/#{post.user.id}"
           %li.text
             %p さんのポスト
-        .main-posts__post__detail__image{:style => "background-image: url(#{post.image});"}
+        .main-posts__post__detail__image{:style => "background-image: url(#{post.images.first.src.url});"}
         .more-contents
           =link_to "#{post.text}","/posts/#{post.id}"
           %ul.like-create-tags

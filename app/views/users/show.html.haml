@@ -4,7 +4,7 @@
     .user-image
       %img.user-icon{src: @user.image }
     .user-introduction
-      - if user_signed_in? && current_user.id == @post.id
+      - if user_signed_in? && current_user.id
         .user-font
           %a.font__cog
             = link_to destroy_user_session_path, method: :delete do
@@ -33,7 +33,7 @@
     .main-posts-detail
       - @posts.each do |post|
         =link_to "/posts/#{post.id}" ,class: "posts-show" do
-          .detail-image{style: "background-image: url(#{post.image});"}
+          .detail-image{style: "background-image: url(#{post.images.first.src.url});"}
           .mask
             .likes
               ♡
