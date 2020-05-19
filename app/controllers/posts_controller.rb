@@ -3,17 +3,23 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @posts = Post.includes(:user, :category).order("created_at DESC").page(params[:page]).per(13)
+    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(13)
+    @post_topics = Post.includes(:category).order("created_at DESC").page(params[:page]).per(4)
     @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
-    @parents = Category.all.order("id ASC").limit(100)
+    @parents = Category.all.order("id ASC").limit(25)
+    @post_food = Post.where(category_id: 78).order("created_at DESC").page(params[:page]).per(4)
+    @post_fashion = Post.where(category_id: 76).order("created_at DESC").page(params[:page]).per(4)
+    @top_ranks = Post.includes(:user).find(Like.group(:post_id).pluck(:post_id))
+    @my_ranks = @top_ranks.select{ |post| post.category_id == 76 }
+  end
+
+  def category
   end
 
   def new
     @post = Post.new
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-    end
+    @post.images.new
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name).unshift("選択してください")
   end
 
   def get_category_children
@@ -47,9 +53,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-  end
-
-  def show
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
   end
@@ -60,7 +63,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :text, :content, :category_id).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, :text, :content, :category_id, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_post

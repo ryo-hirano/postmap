@@ -1,0 +1,29 @@
+.contents_user_show
+  %p
+    = @category.name
+    の投稿一覧
+    - @category_posts.each do |post|
+      .main-posts__post__detail
+        .main-posts__post__detail__edit
+          %ul.main-posts__post__detail__edit__list
+          - if user_signed_in? && current_user.id == post.user_id
+            %li
+              = link_to '編集', "/posts/#{post.id}/edit", method: :get
+            %li
+              = link_to '削除', "/posts/#{post.id}", method: :delete
+        .main-posts__post__detail__image{:style => "background-image: url(#{post.image});"}
+        .more-contents
+          =link_to "#{post.text}","/posts/#{post.id}"
+          %ul.like-create-tags
+            %li.like
+              = render 'likes/like', post: post
+            %li.create
+              %p(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
+            %li.tags
+              - @parents.each do |parent|
+                - if post.category_id == parent.id
+                  .bar-thery
+                    = link_to "categories/#{post.category.id}", class:"thery-field", id: "bar-d" do
+                      = parent.name 
+  = paginate(@category_posts)
+  %a.btn{:href => "/"} 投稿一覧へ戻る

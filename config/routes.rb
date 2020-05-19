@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: :show
+  resources :categories, only: :show
   post   '/like/:post_id' => 'likes#like',   as: 'like'
   delete '/like/:post_id' => 'likes#unlike', as: 'unlike'
 end

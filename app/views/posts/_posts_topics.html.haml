@@ -3,43 +3,18 @@
     Topics
   .products
     .products__head
-      = link_to "/" do
+      = link_to "categories/76" do
         %h3.title
-          Food
+          グルメ
 
     .products__lists
-      .list
-        = link_to "/" do
-          %figure.list-img
-            =image_tag asset_path("aaa.jpg")
-            .post-text
-              %p.text
-                青いsjdんcうdlsjshjしshjしおおおおおおおおおhxししx
-
-
-      .list
-        = link_to "/" do
-          %figure.list-img
-            =image_tag asset_path("aaa.jpg")
-            .post-text
-              %p.text
-                青いsjdんcうdlsjshjしshjしおおおおおおおおおhxししx
-
-      .list
-        = link_to "/" do
-          %figure.list-img
-            =image_tag asset_path("aaa.jpg")
-            .post-text
-              %p.text
-                青いsjdんcうdlsjshjしshjしおおおおおおおおおhxししx
-
-      .list
-        = link_to "/" do
-          %figure.list-img
-            =image_tag asset_path("aaa.jpg")
-            .post-text
-              %p.text
-                青いsjdんcうdlsjshjしshjしおおおおおおおおおhxししx
+      - @post_food.each do |post|
+        .list
+          = link_to "/posts/#{post.id}" do
+            %figure.list-img{:style => "background-image: url(#{post.image});"}
+              .post-text
+                %p.text
+                  =post.text
 
 %section.top-view__pickup
   %h2.head
@@ -48,38 +23,13 @@
     .products__head
       = link_to "/" do
         %h3.title
-          Food
+          Fashion
 
     .products__lists
-      .list
-        = link_to "/" do
-          %figure.list-img
-            =image_tag asset_path("aaa.jpg")
-            .post-text
-              %p.text
-                青いsjdんcうdlsjshjしshjしおおおおおおおおおhxししx
-
-
-      .list
-        = link_to "/" do
-          %figure.list-img
-            =image_tag asset_path("aaa.jpg")
-            .post-text
-              %p.text
-                青いsjdんcうdlsjshjしshjしおおおおおおおおおhxししx
-
-      .list
-        = link_to "/" do
-          %figure.list-img
-            =image_tag asset_path("aaa.jpg")
-            .post-text
-              %p.text
-                青いsjdんcうdlsjshjしshjしおおおおおおおおおhxししx
-
-      .list
-        = link_to "/" do
-          %figure.list-img
-            =image_tag asset_path("aaa.jpg")
-            .post-text
-              %p.text
-                青いsjdんcうdlsjshjしshjしおおおおおおおおおhxししx
+      - @post_fashion.each do |post|
+        .list
+          = link_to "/posts/#{post.id}" do
+            %figure.list-img{:style => "background-image: url(#{post.image});"}
+              .post-text
+                %p.text
+                  =post.text

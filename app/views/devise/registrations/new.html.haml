@@ -1,0 +1,28 @@
+.contents-row
+  %video{autoplay: "", height: "360", loop: "", muted: "", playsinline:  "", src: "/movie/Clothing.mp4", width: "640"}
+  %h1 Fashion Blog
+  %h2 あなたのファッションを共有しよう。
+  .cont
+    .cont-inner
+      %h2.title Sign up
+      = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+        = devise_error_messages!
+        .cp-text
+          %label.ef
+            = f.text_field :nickname, autofocus: true, maxlength: "6", placeholder: "ニックネーム"
+        .cp-text
+          %label.ef
+            = f.email_field :email, placeholder: "メールアドレス"
+        .cp-text
+          %label.ef
+          - if @validatable
+            %em
+              (#{@minimum_password_length} characters minimum)
+          = f.password_field :password, autocomplete: "off", placeholder: "パスワード"
+        .cp-text
+          %label.ef
+            = f.password_field :password_confirmation, autocomplete: "off", placeholder: "パスワード(確認用)"
+        .actions
+          = f.submit "Sign up", class: "btn-flat-border"
+        .signup-actions
+          %a.btn-flat-border{href: "/users/sign_in"} 新規会員登録

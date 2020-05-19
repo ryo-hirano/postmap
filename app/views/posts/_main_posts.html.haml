@@ -28,7 +28,7 @@
               - @parents.each do |parent|
                 - if post.category_id == parent.id
                   .bar-thery
-                    = link_to "#", class:"thery-field", id: "bar-d" do
+                    = link_to "categories/#{post.category.id}", class:"thery-field", id: "bar-d" do
                       = parent.name 
 
     = paginate(@posts)
@@ -68,12 +68,13 @@
           .main-posts__side-bar__posts__post__show= link_to '詳細', "/posts/#{post.id}", method: :get
 
     .main-posts__side-bar__collections
-      =link_to "#", {class: "collection"} do
-        .title
-          %h2.subtitle
-            BestSnap
-          %p.user-name
-            Take
-        =image_tag(asset_path("snap.jpg"), {class: "snap"})
+      - @my_ranks.first(1).each do |post|
+        =link_to "/posts/#{post.id}", {class: "collection"} do
+          .title
+            %h2.subtitle
+              BestFashion
+            %p.user-name
+              = post.user.nickname
+          .snap{:style => "background-image: url(#{post.image});"}
 
 

@@ -7,6 +7,24 @@
       %h1 image
       %li= form.text_field :image, placeholder: "Image Url"
       %br
+      %li
+        #image-box
+          #previews
+            - if @post.persisted?
+              - @post.images.each_with_index do |image, i|
+                = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+          = form.fields_for :images do |image|
+            .js-file_group{"data-index" => "#{image.index}"}
+              = image.file_field :src, class: 'js-file'
+              %br/
+              %span.js-remove 削除
+            - if @post.persisted?
+              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+          - if @post.persisted?
+            .js-file_group{"data-index" => "#{@post.images.count}"}
+              = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
+              .js-remove 削除
+      %br
       %h1 title
       %li= form.text_field :text, placeholder: "text"
       %br
@@ -18,6 +36,6 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = form.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              = form.select :category, @category_parent_array, {include_blunk: "選択してください", selected: "選択してください"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
     %li= form.submit "SEND"
     

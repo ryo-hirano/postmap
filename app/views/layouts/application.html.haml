@@ -19,6 +19,14 @@
       .top-bar__top
         %p.top__title 
           Fashion Blog
+      -# .category_list
+      -#   .parents_list
+      -#     - @parents.each do |parent|
+      -#       = link_to "#{parent.name}", root_path, class: "parent_category",id: "#{parent.id}"
+      -#   .children_list
+      -#   .grand_children_list
+
+
       %ul.top-bar__charm
         %li.charm__icon1
           = link_to '#' do

@@ -6,7 +6,6 @@
   height: 100%;
   height: 100vh;
   width: 100vw;
-  position: relative;
   video{
     position: fixed;
     right: 0;
@@ -20,35 +19,199 @@
     background-size: cover;
    }
    h1{
+     padding-top: 20px;
      font-size: 75px;
      font-weight: 900;
+     text-align: center;
      font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+     color: #fff;
    }
+   h2{
+    font-size: 15px;
+    font-weight: 900;
+    text-align: center;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+    color: #fff;
+   }
+   .introduction{
+     text-align: center;
+     padding: 20px;
+    a.app{
+      font-size: 20px;
+      font-weight: 900;
+      text-align: center;
+      font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+    .twitter{
+      text-align: center;
+      padding: 20px;
+      a.ryo{
+        font-size: 20px;
+        font-weight: 900;
+        text-align: center;
+        font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
 
    .cont{
+    width: 100%;
     display:flex;
     justify-content:center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
    }
    .cont-inner{
-    width: 210px;
+    width: 500px;
     padding: 20px;
     border: solid 1px #fff;
     color: #fff;
     text-align: center;
-    input{
-      width: 150px;
+    h2.title{
+      font-size: 25px;
     }
-    a{
-      color: white;
+    .cp-text {
+      position: relative;
+      margin: 40px 3%;
+    }
+    .cp-text input[type='email'] {
+      font: 15px/24px sans-serif;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0.3em;
+      transition: 0.3s;
+      letter-spacing: 1px;
+      color: #fff;
+      border: none;
+      border-bottom: 2px solid #fff;
+      background: transparent;
+    }
+    input::placeholder {
+      color: #fff;
+    }
+    .ef input[type='email']:focus {
+      border-bottom: 2px solid #1b2538;
+      outline: none;
+    }
+    .cp-text {
+      position: relative;
+      margin: 40px 3%;
+    }
+    .cp-text input[type='password'] {
+      font: 15px/24px sans-serif;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0.3em;
+      transition: 0.3s;
+      letter-spacing: 1px;
+      color: #fff;
+      border: none;
+      border-bottom: 2px solid #fff;
+      background: transparent;
+    }
+    input::placeholder {
+      color: #fff;
+    }
+    .ef input[type='password']:focus {
+      border-bottom: 2px solid #1b2538;
+      outline: none;
+    }
+    .cp-text {
+      position: relative;
+      margin: 40px 3%;
+    }
+    .cp-text input[type='text'] {
+      font: 15px/24px sans-serif;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0.3em;
+      transition: 0.3s;
+      letter-spacing: 1px;
+      color: #fff;
+      border: none;
+      border-bottom: 2px solid #fff;
+      background: transparent;
+    }
+    input::placeholder {
+      color: #fff;
+    }
+    .ef input[type='text']:focus {
+      border-bottom: 2px solid #1b2538;
+      outline: none;
+    }
+  }
+  .field-checkbox{
+    display: flex;
+    position: relative;
+    p.sub{
+      padding-left: 15px;
+    }
+    .check-box{
+      position: absolute;
+      left: 230px;
+      top: 4px;
+    }
+  }
+  .actions{
+    padding: 20px 20px 10px 20px;
+    .btn-flat-border{
+      display: inline-block;
+      padding: 0.3em 1em;
       text-decoration: none;
+      color: #fff;
+      border: solid 2px #fff;
+      border-radius: 3px;
+      transition: .4s;
+      background: transparent;
+      width: 100%;
+      cursor: pointer;
     }
-   }
+    .btn-flat-border:hover {
+      border: solid 2px #fff;
+      background: #fff;
+      color: #1b2538;
+    }
+  }
+  .signup-actions{
+    padding: 10px 20px 20px 20px;
+    .btn-flat-border{
+      display: inline-block;
+      padding: 0.3em 1em;
+      text-decoration: none;
+      color: #fff;
+      border: solid 2px #fff;
+      border-radius: 3px;
+      transition: .4s;
+      background: transparent;
+      width: 100%;
+    }
+    .btn-flat-border:hover {
+      border: solid 2px #fff;
+      background: #fff;
+      color: #1b2538;
+    }
+  }
+  .signin-actions{
+    padding: 10px 20px 20px 20px;
+    .btn-flat-border{
+      display: inline-block;
+      padding: 0.3em 1em;
+      text-decoration: none;
+      color: #fff;
+      border: solid 2px #fff;
+      border-radius: 3px;
+      transition: .4s;
+      background: transparent;
+      width: 100%;
+    }
+    .btn-flat-border:hover {
+      border: solid 2px #fff;
+      background: #fff;
+      color: #1b2538;
+    }
+  }
 }
 
 // 詳細画面

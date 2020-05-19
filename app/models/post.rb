@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user
   belongs_to :category, optional: true
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   def self.search(search)
     return Post.all unless search

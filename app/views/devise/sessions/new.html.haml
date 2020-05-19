@@ -1,0 +1,28 @@
+.contents-row
+  %video{autoplay: "", height: "360", loop: "", muted: "", playsinline: "", src: "/movie/Clothing.mp4", width: "640"}
+  %h1 Fashion Blog
+  %h2 あなたのファッションを共有しよう。
+  %br
+  .cont
+    .cont-inner
+      %h2.title Sign in
+      = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
+        .cp-text
+          %label.ef
+            = f.email_field :email, autofocus: true, placeholder: "メールアドレス"
+        .cp-text
+          %label.ef
+            = f.password_field :password, autocomplete: "off", placeholder: "パスワード"
+        - if devise_mapping.rememberable?
+          .field-checkbox
+            %p.sub
+              パスワードを保存しますか？
+            = f.check_box :remember_me, class: "check-box"
+        .actions
+          = f.submit "Log in", class: "btn-flat-border"
+        .signup-actions
+          %a.btn-flat-border{href: "/users/sign_up"} 新規会員登録
+  .introduction
+    %a.app{href: "#"} 本アプリの説明
+  .twitter
+    %a.ryo{href: "https://twitter.com/ryonoprograming"} Twitterアカウント
