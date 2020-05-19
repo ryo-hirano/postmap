@@ -1,0 +1,15 @@
+.container
+  = form_with(model: @user, local: true) do |form|
+    %h3
+      する
+    %br
+    %ul
+      %h1 image URL
+      %li= form.file_field :image
+      %br
+      %h1 ニックネーム
+      %li= form.text_area :nickname, placeholder: "ニックネーム"
+      %br
+      %h1 紹介文
+      %li= form.text_area :introduction, placeholder: "紹介文"
+      %li= form.submit "SEND"
