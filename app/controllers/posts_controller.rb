@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(13)
+    @posts = Post.includes([:user ,:images]).order("created_at DESC").page(params[:page]).per(13)
     @post_topics = Post.includes(:category).order("created_at DESC").page(params[:page]).per(4)
     @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
     @parents = Category.all.order("id ASC").limit(25)

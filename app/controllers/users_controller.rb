@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @nickname = @user.nickname
-    @posts = @user.posts.order("created_at DESC")
+    @posts = @user.posts.includes([:user, :images]).order("created_at DESC")
     @parents = Category.all.order("id ASC").limit(25)
-    @post = Post.find(params[:id])
   end
 
   def edit
@@ -14,6 +13,11 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:image, :nickname, :introduction)
   end
 
 end

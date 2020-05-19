@@ -2,4 +2,4 @@
   %div.slick
     - @posts.first(4).each do |post|
       .posts
-        %img.image{src: post.image }
+        %img.image{src: post.images.first.src.url }
