@@ -1,25 +1,45 @@
 .contents_user_show
-  %p
+
+  .user-information
+    .user-image
+      %img.user-icon{src: @user.image }
+    .user-introduction
+      - if user_signed_in? && current_user.id == @post.id
+        .user-font
+          %a.font__cog
+            = link_to destroy_user_session_path, method: :delete do
+              %i.fas.fa-sign-out-alt
+          %a.font__edit
+            = link_to edit_user_path do
+              %i.fas.fa-cog
+          %a.font__cog
+            = link_to new_post_path do
+              %i.fas.fa-edit
+      %p.text
+        = @user.nickname
+      .introduction
+        %p.content
+          = @user.introduction
+      .counting
+        %p.post-count
+          投稿数
+          = @posts.count
+        %p.likes-count
+          総いいね数
+          = @posts.all.sum(:likes_count)
+  %p.look
     = @nickname
     さんの投稿一覧
-    - @posts.each do |post|
-      .main-posts__post__detail
-        .main-posts__post__detail__edit
-          %ul.main-posts__post__detail__edit__list
-          - if user_signed_in? && current_user.id == post.user_id
-            %li
-              = link_to '編集', "/posts/#{post.id}/edit", method: :get
-            %li
-              = link_to '削除', "/posts/#{post.id}", method: :delete
-        .main-posts__post__detail__image{:style => "background-image: url(#{post.image});"}
-        .more-contents
-          =link_to "#{post.text}","/posts/#{post.id}"
-          %ul.like-create-tags
-            %li.like
-              = render 'likes/like', post: post
-            %li.create
-              %p(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
-            %li.tags
-              %p
-                ファッション
-  %a.btn{:href => "/"} 投稿一覧へ戻る
+    .main-posts-detail
+      - @posts.each do |post|
+        =link_to "/posts/#{post.id}" ,class: "posts-show" do
+          .detail-image{style: "background-image: url(#{post.image});"}
+          .mask
+            .likes
+              ♡
+              = post.likes_count
+            .text
+              - @parents.each do |parent|
+                - if post.category_id == parent.id
+                  = parent.name 
+

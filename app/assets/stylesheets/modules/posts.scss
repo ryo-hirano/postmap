@@ -321,32 +321,6 @@ body{
   border-radius: 50%;
 }
 
-.main-posts__post__detail__edit{
-  list-style: none;
-  position: absolute;
-  border: 1px #f5f5f5 solid;
-  padding: 0 5px;
-  top: 10px;
-  left: 90%;
-  a{
-    color: gray;
-    text-decoration: none;
-  }
-}
-
-// ユーザー投稿一覧
-.contents_user_show{
-  width: 1080px;
-  height: 100vh;
-  margin: 0 auto;
-  p{
-    text-align: center;
-  }
-  .main-posts__post__detail{
-    width: 1080px;
-  }
-}
-
 // 検索
 .contents_search{
   width: 1080px;

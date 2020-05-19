@@ -22,6 +22,9 @@
         .cp-text
           %label.ef
             = f.password_field :password_confirmation, autocomplete: "off", placeholder: "パスワード(確認用)"
+        .field
+          = f.label :image
+          = f.file_field :image
         .actions
           = f.submit "Sign up", class: "btn-flat-border"
         .signup-actions
