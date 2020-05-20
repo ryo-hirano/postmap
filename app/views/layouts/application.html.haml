@@ -17,8 +17,9 @@
           = form.submit class: "search-btn", value: "👠"
 
       .top-bar__top
-        %p.top__title 
-          Fashion Blog
+        = link_to root_path do
+          %p.top__title 
+            Fashion Blog
       -# .category_list
       -#   .parents_list
       -#     - @parents.each do |parent|

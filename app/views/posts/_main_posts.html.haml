@@ -75,6 +75,6 @@
               BestFashion
             %p.user-name
               = post.user.nickname
-          .snap{:style => "background-image: url(#{post.image});"}
+          .snap{:style => "background-image: url(#{post.images.first.src.url});"}
 
 
