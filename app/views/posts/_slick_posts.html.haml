@@ -2,4 +2,13 @@
   %div.slick
     - @posts.first(4).each do |post|
       .posts
-        %img.image{src: post.images.first.src.url }
+        =link_to "/posts/#{post.id}", class: "posts-show" do
+          %img.image{src: post.images.first.src.url }
+          .mask
+            .likes
+              ♡
+              = post.likes_count
+            .text
+              - @parents.each do |parent|
+                - if post.category_id == parent.id
+                  = parent.name 

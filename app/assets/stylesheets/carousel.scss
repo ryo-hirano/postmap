@@ -15,11 +15,43 @@
   .slick{
     .posts{
       height: 300px;
-      img{
+      .posts-show:hover .mask {
+        opacity:		1;	/* マスクを表示する */
+      }
+      .posts-show{
+        position: relative;
         width: 358px;
-        height: 300px;
-        margin: 0 auto;
-        background-size: cover;
+        height: 358px;
+        img{
+          width: 358px;
+          height: 358px;
+          margin: 0 auto;
+          // background-size: cover;
+          position: relative;
+        }
+        .mask{
+          width:			358px;
+          height:			358px;
+          position:		absolute;	/* 絶対位置指定 */
+          top:			0;
+          left:			0;
+          opacity:		0;	/* マスクを表示しない */
+          background-color:	rgba(0,0,0,0.4);	/* マスクは半透明 */
+          -webkit-transition:	all 0.2s ease;
+          transition:		all 0.2s ease;
+          .likes {
+            font-size:		130%;
+            text-align: 		center;
+            padding-top:		80px;
+            color:			#fff;
+          }
+          .text{
+            font-size:		130%;
+            text-align: 		center;
+            padding-top:		80px;
+            color:			#fff;
+          }
+        }
       }
     }
   }

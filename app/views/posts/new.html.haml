@@ -1,41 +1,43 @@
-.container
+.new-container
   = form_with model: @post, local: true do |form|
-    %h3
-      投稿する
-    %br
-    %ul
-      %h1 image
-      %li= form.text_field :image, placeholder: "Image Url"
+    .containers
+      %h3.title
+        投稿する
       %br
-      %li
-        #image-box
-          #previews
-            - if @post.persisted?
-              - @post.images.each_with_index do |image, i|
-                = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-          = form.fields_for :images do |image|
-            .js-file_group{"data-index" => "#{image.index}"}
-              = image.file_field :src, class: 'js-file'
-              %br/
-              %span.js-remove 削除
-            - if @post.persisted?
-              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-          - if @post.persisted?
-            .js-file_group{"data-index" => "#{@post.images.count}"}
-              = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
-              .js-remove 削除
-      %br
-      %h1 title
-      %li= form.text_field :text, placeholder: "text"
-      %br
-      %h1 contents
-      %li= form.text_area :content, placeholder: "content" , rows: "10"
-      .listing-form-box
-        .listing-product-detail__category
-          = form.label 'カテゴリー', class: 'listing-default__label'
-          %span.listing-default--require 必須
-          .listing-select-wrapper
-            .listing-select-wrapper__box
-              = form.select :category, @category_parent_array, {include_blunk: "選択してください", selected: "選択してください"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-    %li= form.submit "SEND"
+      %ul
+        %h1.top タイトル(必須)
+        %li.top-form
+          = form.text_field :text, placeholder: "50文字以内"
+        %br
+        %li
+          .sale-image
+            .sale-image__form
+              %p.max-uploads
+                最大4枚までアップロードできます
+              .post__drop__box__container
+                .prev-content
+                .label-content
+                  = form.label :"images_attributes_#{@post.images.count}_src", class: "label-box", id: "label-box--#{@post.images.count}" do
+                    %pre.label-box__text-visible クリックしてファイルをアップロード
+                .hidden-content
+                  = form.fields_for :images do |i|
+                    = i.file_field :src, class: "hidden-field"
+                    %input{name: "post[images_attributes][0][_destroy]", id: "post_images_attributes_0__destroy", class:"hidden-checkbox", type:"checkbox", value:"0"}
+                  - @post.images.length.upto(3) do |i|
+                    %input{name: "post[images_attributes][#{i}][src]", id: "post_images_attributes_#{i}_src", class:"hidden-field", type:"file"}
+                    %input{name: "post[images_attributes][#{i}][_destroy]", id: "post_images_attributes_#{i}__destroy", class:"hidden-checkbox", type:"checkbox", value:"#{i}"}
+        %br
+        %h1.bottom 本文(任意)
+        %li.bottom-form
+          = form.text_area :content, placeholder: "500文字以内" , rows: "10"
+        %br
+
+        %li.listing-form-box
+          .listing-product-detail__category
+            %h1.category カテゴリ(必須)
+            .listing-select-wrapper
+              .listing-select-wrapper__box
+                = form.select :category, @category_parent_array, {include_blunk: "選択してください", selected: "選択してください"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+          .submit-btn
+            = form.submit "SEND"
     

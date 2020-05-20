@@ -61,11 +61,10 @@
       - @all_ranks.each.with_index(1) do |post, i|
         .main-posts__side-bar__posts__post
           .main-posts__side-bar__posts__post__like
-            ❤️
+            ♡
             =post.likes_count
           .main-posts__side-bar__posts__post__image{:style => "background-image: url(#{post.images.first.src.url});"}
-          %a.main-posts__side-bar__posts__post__text= simple_format(post.text)
-          .main-posts__side-bar__posts__post__show= link_to '詳細', "/posts/#{post.id}", method: :get
+          .main-posts__side-bar__posts__post__text=link_to "#{post.text}","/posts/#{post.id}"
 
     .main-posts__side-bar__collections
       - @my_ranks.first(1).each do |post|

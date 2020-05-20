@@ -4,7 +4,7 @@
     .user-image
       %img.user-icon{src: @user.image }
     .user-introduction
-      - if user_signed_in? && current_user.id
+      - if user_signed_in? && current_user.id == @user.id
         .user-font
           %a.font__cog
             = link_to destroy_user_session_path, method: :delete do
