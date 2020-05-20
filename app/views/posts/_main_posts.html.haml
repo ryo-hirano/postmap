@@ -63,7 +63,7 @@
           .main-posts__side-bar__posts__post__like
             ❤️
             =post.likes_count
-          .main-posts__side-bar__posts__post__image{:style => "background-image: url(#{post.image});"}
+          .main-posts__side-bar__posts__post__image{:style => "background-image: url(#{post.images.first.src.url});"}
           %a.main-posts__side-bar__posts__post__text= simple_format(post.text)
           .main-posts__side-bar__posts__post__show= link_to '詳細', "/posts/#{post.id}", method: :get
 

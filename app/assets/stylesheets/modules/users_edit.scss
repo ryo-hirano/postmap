@@ -1,0 +1,111 @@
+// ユーザー情報編集画面
+
+.edit-container{
+  width: 1080px;
+  height: 600px;
+  margin: 0 auto;
+  .containers{
+    padding: 25px 0;
+    height: 500px;
+    width: 950px;
+    text-align: center;
+    border: 1px solid #f5f5f5;
+    margin: 50px auto;
+    position: relative;
+    h3.title{
+      font-size: 30px;
+    }
+    .image-form{
+      position: absolute;
+      top: 40%;
+      left: 10%;
+      .image_label{
+        input{
+          display: none;
+        }
+      }
+      .prev-contents{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        .prev-content{
+          img{
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+        }
+        .photo-icon{
+          font-size: 170px;
+          cursor: pointer;
+        }
+      }
+    }
+    .introduction-form{
+      position: absolute;
+      top: 25%;
+      left: 47%;
+      h1.nickname{
+        text-align: left;
+      }
+      p.nickname-form{
+        input{
+          padding: 0 5px;
+          font-size: 16px;
+          width: 400px;
+          height: 25px;
+          background-color: #ddd;
+          border: none;
+          outline: none;
+          box-sizing: border-box; 
+        }
+      }
+      h1.intro{
+        text-align: left;
+      }
+      p.intro-form{
+        textarea{
+          padding: 5px;
+          font-size: 16px;
+          width: 400px;
+          height: 200px;
+          background-color: #ddd;
+          border: none;
+          outline: none;
+          box-sizing: border-box; 
+        }
+      }
+      .introduction-submit{
+        p.submit{
+          input{
+            width: 400px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 編集・投稿完了画面(update)
+.contents__row{
+  height: 500px;
+  .success{
+    height: 300px;
+    width: 950px;
+    margin: 150px auto;
+    border: 1px solid #f5f5f5;
+    text-align: center;
+    h3{
+      padding: 20px 0;
+      margin: 50px 0;
+      font-size: 30px;
+      height: 100px;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
