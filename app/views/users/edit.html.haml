@@ -1,15 +1,27 @@
-.container
+.edit-container
   = form_with(model: @user, local: true) do |form|
-    %h3
-      する
-    %br
-    %ul
-      %h1 image URL
-      %li= form.file_field :image
+    .containers
+      %h3.title
+        編集する
       %br
-      %h1 ニックネーム
-      %li= form.text_area :nickname, placeholder: "ニックネーム"
-      %br
-      %h1 紹介文
-      %li= form.text_area :introduction, placeholder: "紹介文"
-      %li= form.submit "SEND"
+      .image-form
+        = form.label :image, class: 'image_label' do
+          .prev-contents
+            - if current_user.image.present?
+              .prev-content
+                = image_tag current_user.image.url, alt: "preview", class: "prev-image"
+            - else
+              = icon('fas', 'user', class: 'photo-icon')
+          = form.file_field :image, class: 'image_form__contents__field hidden_file'
+      .introduction-form
+        %h1.nickname ニックネーム(必須)
+        %p.nickname-form
+          = form.text_field :nickname, placeholder: "20文字まで"
+        %br
+        %h1.intro 紹介文(任意)
+        %p.intro-form
+          = form.text_area :introduction, placeholder: "200文字まで"
+        %br
+        .introduction-submit
+          %p.submit
+            = form.submit "SEND"
