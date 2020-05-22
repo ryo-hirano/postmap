@@ -21,7 +21,9 @@
           =link_to "#{post.text}","/posts/#{post.id}"
           %ul.like-create-tags
             %li.like
-              = render 'likes/like', post: post
+              %p.likes-count
+                ♡
+                =post.likes_count
             %li.create
               %p(datetime="#{post.created_at}")= time_ago_in_words(post.created_at)
             %li.tags
@@ -30,8 +32,11 @@
                   .bar-thery
                     = link_to "categories/#{post.category.id}", class:"thery-field", id: "bar-d" do
                       = parent.name 
-
-    = paginate(@posts)
+    .mainposts__post__detail__more
+      .more-link
+        =link_to "/" , class: "morelink-btn" do
+          %p.more-text
+            もっと見る
   
   .main-posts__side-bar
     .main-posts__side-bar__user

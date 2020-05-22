@@ -1,0 +1,122 @@
+.post_show{
+  width: 1080px;
+  margin: 0 auto;
+  .post_show--title{
+    width: 1080px;
+    height: 450px;
+    margin: 50px auto;
+    border: 1px solid #f5f5f5;
+    display: flex;
+    .slick-contents-show{
+      width: 450px;
+      height: 450px;
+      .slick-show{
+        width: 450px;
+        height: 450px;
+        img.top-image{
+          width: 450px;
+          height: 450px;
+        }
+        img.sub-image{
+          height: 450px;
+          width: 450px;
+        }
+      }
+    }
+    .contents_post_show{
+      width: 630px;
+      position: relative;
+      .contents_post__text{
+        text-align: center;
+        margin: 10px 0;
+        font-size: 20px;
+      }
+      .contents_post__content{
+        height: 200px;
+        padding: 10px;
+      }
+      .contents_post__image{
+        position: absolute;
+        top: 88%;
+        left: 83%;
+        display: flex;
+        text-decoration: none;
+        .image-outline{
+          img.image{
+            height: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            border-radius: 50%;
+          }
+        }
+        .contents_post__nickname{
+          padding: 12px;
+          color: #000;
+        }
+      }
+      .contents_post__comment{
+        margin-left: 5px;
+        position: absolute;
+        top: 88%;
+        textarea{
+          width: 400px;
+          outline: none;
+          padding: 0 5px;
+        }
+        .submit{
+          display: inline-block;
+          position: absolute;
+          input[type="submit"]{
+            padding: 5px;
+            font-size: 1.6em;
+            background-color: #fff;
+            color: gray;
+            border-style: none;
+            border: 1px solid gray;
+            outline: none;
+            cursor: pointer;
+            margin-left: 5px;
+          }
+        }
+      }
+        h4{
+          text-align: center;
+        }
+      .contents_post__comments{
+        overflow: scroll;
+        height: 110px;
+        padding: 0 5px;
+        .inner-contents{
+          display: flex;
+          padding: 5px 0;
+          border-top: 1px solid #f5f5f5;
+          img.comments-image{
+            height: 35px;
+            height: 35px;
+            border: 1px solid #000;
+            border-radius: 50%;
+          }
+          a{
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            padding: 5px 10px 0 5px;
+          }
+          .text{
+            padding-right: 10px;
+            width: 470px;
+            font-size: 14px;
+          }
+          p.created_at{
+            font-size: 12px;
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+

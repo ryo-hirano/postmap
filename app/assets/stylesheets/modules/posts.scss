@@ -199,7 +199,6 @@ body{
           top: 88%;
           left: 80%;
           font-size: small;
-          font-weight: bold;
         }
         &__show{
           position: absolute;
@@ -288,6 +287,11 @@ body{
           display: flex;
           padding-left:0;
           li.like{
+            p{
+              margin-top: 12px;
+              font-size: 12px;
+              padding: 0 5px;
+            }
           }
           li.create{
             p{
@@ -311,15 +315,30 @@ body{
       }
     }
   }
+  .mainposts__post__detail__more{
+    width: 760px;
+    height: 150px;
+    .more-link{
+      text-align: center;
+      height: 50px;
+      width: 600px;
+      margin: 50px auto;
+      border: 1px solid gray;
+      a.morelink-btn{
+        display: inline-block;
+        width: 600px;
+        height: 50px;
+        text-decoration: none;
+        
+        p.more-text{
+          line-height: 3;
+          color: gray;
+        }
+      }
+    }
+  }
 }
 
-.iine__button{
-  line-height: 42px;
-  color: black;
-  font-size: 12px;
-  display: inline-block;
-  margin-right: 5px;
-}
 
 .main-posts__post__detail__more__image{
   background-size: cover;

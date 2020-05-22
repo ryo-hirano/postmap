@@ -4,5 +4,6 @@ $(document).on('turbolinks:load', function(){
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    dots:true, 
   });
 });

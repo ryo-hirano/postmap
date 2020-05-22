@@ -1,33 +1,39 @@
-.contents_post
-  .contents_post__title
-    = @post.text
-    .post-image
-      %ul
-        %li
-          - @post.images.first(1).each do |image|
-            = image_tag image.src.url, class: 'top-image'
-          %ul
-            - @post.images[1..3].each do |image|
-              %li
-                = image_tag image.src.url, class: 'sub-image' 
-  .contents_post__date
-    = @post.created_at
-  .contents_post__text
-    =simple_format @post.content
-  .contents_post__comment
-  -if current_user
-    = form_with(model: [@post, @comment], local: true) do |form|
-      = form.text_area :text, placeholder: "コメントする", rows: "2"
-      = form.submit "SEND"
-  .contents_post__comments
-    %h4 ＜コメント一覧＞
-    - if @comments
-      - @comments.each do |comment|
-        %p
-          %strong
-            = link_to comment.user.nickname, "/users/#{comment.user_id}"
-          = comment.text
-  %a.btn{:href => "/"} 投稿一覧へ戻る
+.post_show
+  .post_show--title
+    .slick-contents-show
+      %div.slick-show
+        - @post.images.first(1).each do |image|
+          = image_tag image.src.url, class: 'top-image'
+          - @post.images[1..3].each do |image|
+            = image_tag image.src.url, class: 'sub-image' 
+    .contents_post_show
+      .contents_post__text
+        = @post.text
+      .contents_post__content
+        =simple_format @post.content
+      .like-edit-comment
+        = render 'likes/like', post: @post
+      .contents_post__comments
+        - if @comments
+          - @comments.each do |comment|
+            .inner-contents
+              %img.comments-image{src: comment.user.image }
+              = link_to comment.user.nickname, "/users/#{comment.user_id}" 
+              %p.text
+                = comment.text
+              %p.created_at
+                = time_ago_in_words(comment.created_at)
+      .contents_post__comment
+        -if current_user
+          = form_with(model: [@post, @comment], local: true) do |form|
+            = form.text_area :text, placeholder: "コメントする", rows: "2"
+            .submit
+              = form.submit "SEND"
+      =link_to "/users/#{@post.user.id}", class: "contents_post__image" do
+        .image-outline
+          %img.image{src: @post.user.image }
+        .contents_post__nickname
+          =@post.user.nickname
 
 
 

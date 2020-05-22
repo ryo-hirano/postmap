@@ -1,11 +1,16 @@
 .slick-prev.slick-arrow{
-  background-image: image-url("prev.png");
+  background-image: image-url("arrow-prev.svg");
   background-size: cover;
+  position: absolute;
+  left: 5px;
+  z-index: 1;
 }
 
 .slick-next.slick-arrow{
-  background-image: url("next.png");
+  background-image: url("arrow-next.svg");
   background-size: cover;
+  position: absolute;
+  right: 5px;
 }
 
 .slick-contents{
@@ -55,4 +60,9 @@
       }
     }
   }
+}
+
+// スリックドットの大きさ調整
+.slick-dots li button:before{
+  font-size: 50px;
 }
