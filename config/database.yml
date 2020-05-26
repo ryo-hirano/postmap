@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: postmap_production
-  username: postmap
-  password: <%= ENV['POSTMAP_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
