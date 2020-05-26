@@ -44,7 +44,7 @@
         .image-outline{
           img.image{
             height: 50px;
-            height: 50px;
+            width: 50px;
             border: 1px solid #000;
             border-radius: 50%;
           }
@@ -84,7 +84,7 @@
         }
       .contents_post__comments{
         overflow: scroll;
-        height: 110px;
+        height: 140px;
         padding: 0 5px;
         .inner-contents{
           display: flex;

@@ -1,7 +1,6 @@
 .contents_user_show
   %p.category-name
-    = "' #{params[:keyword]} '"
-    の投稿一覧
+    新規投稿一覧
     .main-posts-detail
       - @posts.each do |post|
         =link_to "/posts/#{post.id}" ,class: "posts-show" do

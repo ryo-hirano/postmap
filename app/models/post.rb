@@ -11,4 +11,9 @@ class Post < ApplicationRecord
     return Post.all unless search
     Post.where('text LIKE(?)', "%#{search}%")
   end
+
+  accepts_nested_attributes_for :images, allow_destroy: true
+  validates :text, length: { maximum: 50 }, presence: true
+  validates :content, length: { maximum: 500 }
+  validates :category_id, :images, presence: true
 end

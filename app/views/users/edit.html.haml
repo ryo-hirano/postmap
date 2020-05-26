@@ -1,4 +1,5 @@
 .edit-container
+  = render "devise/shared/error_messages", resource: @user
   = form_with(model: @user, local: true) do |form|
     .containers
       %h3.title

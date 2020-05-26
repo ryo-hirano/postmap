@@ -1,6 +1,7 @@
 .new-container
   = form_with model: @post, local: true do |form|
     .containers
+      = render "devise/shared/error_messages", resource: @post
       %h3.title
         投稿する
       %br
@@ -37,7 +38,7 @@
             %h1.category カテゴリ(必須)
             .listing-select-wrapper
               .listing-select-wrapper__box
-                = form.select :category, @category_parent_array, {include_blunk: "選択してください", selected: "選択してください"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                = form.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
           .submit-btn
             = form.submit "SEND"
     

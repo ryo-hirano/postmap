@@ -34,7 +34,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @posts = Post.create(post_params)
+    @post = Post.new(post_params)
+    if @post.save
+      render :create
+    else
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name).unshift("選択して下さい")
+      render :new
+    end
   end
 
   def destroy
@@ -52,13 +58,18 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order("created_at DESC")
   end
   
   def search
     @posts = Post.search(params[:keyword])
+    @parents = Category.all.order("id ASC").limit(25)
+  end
+
+  def index_show
+    @posts = Post.includes([:user ,:images]).order("created_at DESC").page(params[:page]).per(50)
     @parents = Category.all.order("id ASC").limit(25)
   end
 
