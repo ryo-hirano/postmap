@@ -7,10 +7,10 @@ class PostsController < ApplicationController
     @post_topics = Post.includes(:category).order("created_at DESC").page(params[:page]).per(4)
     @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
     @parents = Category.all.order("id ASC").limit(25)
-    @post_food = Post.where(category_id: 78).order("created_at DESC").page(params[:page]).per(4)
-    @post_fashion = Post.where(category_id: 76).order("created_at DESC").page(params[:page]).per(4)
+    @post_food = Post.where(category_id: 5).order("created_at DESC").page(params[:page]).per(4)
+    @post_fashion = Post.where(category_id: 3).order("created_at DESC").page(params[:page]).per(4)
     @top_ranks = Post.includes(:user).find(Like.group(:post_id).pluck(:post_id))
-    @my_ranks = @top_ranks.select{ |post| post.category_id == 76 }
+    @my_ranks = @top_ranks.select{ |post| post.category_id == 3 }
   end
 
   def category
@@ -44,8 +44,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
+    @post = Post.find(params[:id])
+    @post.destroy
   end
 
   def edit
