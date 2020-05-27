@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'counter_culture', '~> 1.8'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'fog-aws'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
