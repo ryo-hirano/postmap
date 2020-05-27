@@ -32,9 +32,10 @@
       =link_to "/users/#{@post.user.id}", class: "contents_post__image" do
         .image-outline
           %img.image{src: @post.user.image }
-      .charm__icon
-        = link_to "/posts/#{@post.id}", method: :delete do
-          %i.far.fa-trash-alt
+      -if user_signed_in? && current_user.id == @post.user_id
+        .charm__icon
+          = link_to "/posts/#{@post.id}", method: :delete do
+            %i.far.fa-trash-alt
 
 
 
