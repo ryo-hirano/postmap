@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post_food = Post.where(category_id: 5).order("created_at DESC").page(params[:page]).per(4)
     @post_fashion = Post.where(category_id: 3).order("created_at DESC").page(params[:page]).per(4)
     @top_ranks = Post.includes(:user).find(Like.group(:post_id).pluck(:post_id))
-    @my_ranks = @top_ranks.select{ |post| post.category_id == 3 }
+    @my_ranks = @all_ranks.select{ |post| post.category_id == 3 }
   end
 
   def category

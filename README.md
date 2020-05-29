@@ -31,11 +31,17 @@
 
 # このサービスでできること
 
-https://user-images.githubusercontent.com/62536923/82183948-c9648500-9921-11ea-9199-8499e176dc73.gif
+![categories](https://user-images.githubusercontent.com/62536923/83236210-1a039a00-a1ce-11ea-8553-d0f969fee465.gif)
 
-https://user-images.githubusercontent.com/62536923/82183951-cc5f7580-9921-11ea-8fe5-e92bde05fe72.gif
+![post](https://user-images.githubusercontent.com/62536923/83236279-37d0ff00-a1ce-11ea-9e47-aca6d258d057.gif)
 
-https://user-images.githubusercontent.com/62536923/82184053-fa44ba00-9921-11ea-9359-001ca2d3f3e8.gif
+![ranking](https://user-images.githubusercontent.com/62536923/83236374-6353e980-a1ce-11ea-95c6-4250909facb4.gif)
+
+![show-posts](https://user-images.githubusercontent.com/62536923/83236428-79fa4080-a1ce-11ea-8861-da5ab17f2023.gif)
+
+![top-slider](https://user-images.githubusercontent.com/62536923/83236546-a3b36780-a1ce-11ea-8bf6-d49f4c6a024d.gif)
+
+![edit-prof](https://user-images.githubusercontent.com/62536923/83236609-c04f9f80-a1ce-11ea-9ec4-5f07f90b9896.gif)
 
 ## Users_table
 
@@ -48,6 +54,7 @@ https://user-images.githubusercontent.com/62536923/82184053-fa44ba00-9921-11ea-9
 |reset_password_sent_at|datetime||
 |remember_created_at|datetime||
 |image|string||
+|introduction|text||
 
 ## Association
 
