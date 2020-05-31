@@ -11,17 +11,17 @@
 # 開発状況
 
 - 開発環境
-  開発言語：
-    Ruby/Ruby on Rails
-  開発ツール：
-    Github/Visual Studio Code
+  - 開発言語：
+    - Ruby/Ruby on Rails
+  - 開発ツール：
+    - Github/Visual Studio Code
 
 - 開発期間
 
-  開発期間：
-    10日間(4/10 ~ 4/20)
-  平均作業時間：
-    1日10時間
+  - 開発期間：
+    - 10日間(4/10 ~ 4/20)
+  - 平均作業時間：
+    - 1日10時間
 
 - 動作概要
   URL
