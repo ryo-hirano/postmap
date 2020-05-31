@@ -23,6 +23,10 @@
   平均作業時間：
     1日10時間
 
+- 動作概要
+  URL
+    https://fashionblog09.herokuapp.com/
+
 # 制作背景
 
 プログラミングに興味を持ち始めた頃から、ファッションを投稿できるSNSを作ってみたいと思っていました。
@@ -31,17 +35,32 @@
 
 # このサービスでできること
 
-![categories](https://user-images.githubusercontent.com/62536923/83236210-1a039a00-a1ce-11ea-8553-d0f969fee465.gif)
-
-![post](https://user-images.githubusercontent.com/62536923/83236279-37d0ff00-a1ce-11ea-9e47-aca6d258d057.gif)
-
-![ranking](https://user-images.githubusercontent.com/62536923/83236374-6353e980-a1ce-11ea-95c6-4250909facb4.gif)
-
-![show-posts](https://user-images.githubusercontent.com/62536923/83236428-79fa4080-a1ce-11ea-8861-da5ab17f2023.gif)
-
+### 最新投稿4件がスライダー形式で表示されます。
 ![top-slider](https://user-images.githubusercontent.com/62536923/83236546-a3b36780-a1ce-11ea-8bf6-d49f4c6a024d.gif)
 
+### もっともいいね数の多い投稿がランキング形式で表示されます。
+![ranking](https://user-images.githubusercontent.com/62536923/83236374-6353e980-a1ce-11ea-95c6-4250909facb4.gif)
+
+### カテゴリ毎の投稿一覧がご覧いただけます。
+![categories](https://user-images.githubusercontent.com/62536923/83236210-1a039a00-a1ce-11ea-8553-d0f969fee465.gif)
+
+### 投稿ができます。画像は最大4枚投稿可能、カテゴリーの選択ができます。
+![post](https://user-images.githubusercontent.com/62536923/83236279-37d0ff00-a1ce-11ea-9e47-aca6d258d057.gif)
+
+### 投稿の詳細をご覧いただけます。コメント・いいね・投稿の削除ができます。
+![show-posts](https://user-images.githubusercontent.com/62536923/83236428-79fa4080-a1ce-11ea-8861-da5ab17f2023.gif)
+
+### マイページをご覧いただけます。
+![my-page](https://user-images.githubusercontent.com/62536923/83345178-28c38b80-a34b-11ea-8f75-19f15f121d2f.gif)
+
+### マイページのプロフィールを編集できます。
 ![edit-prof](https://user-images.githubusercontent.com/62536923/83236609-c04f9f80-a1ce-11ea-9ec4-5f07f90b9896.gif)
+
+### 投稿の検索ができます。
+![search](https://user-images.githubusercontent.com/62536923/83345190-3f69e280-a34b-11ea-8871-c6408eef4108.gif)
+
+
+
 
 ## Users_table
 
