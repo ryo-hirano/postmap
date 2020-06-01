@@ -27,6 +27,14 @@
   URL
     https://fashionblog09.herokuapp.com/
 
+# ログインされる企業様
+
+- 以下のアカウントにてログインをいただければと存じます。
+ - mail
+  - test@test.jp
+ - password
+  - testtest
+  
 # 制作背景
 
 プログラミングに興味を持ち始めた頃から、ファッションを投稿できるSNSを作ってみたいと思っていました。
