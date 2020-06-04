@@ -59,13 +59,13 @@
 ![show-posts](https://user-images.githubusercontent.com/62536923/83236428-79fa4080-a1ce-11ea-8861-da5ab17f2023.gif)
 
 ### マイページをご覧いただけます。
-![my-page](https://user-images.githubusercontent.com/62536923/83345178-28c38b80-a34b-11ea-8f75-19f15f121d2f.gif)
+![furima7](https://user-images.githubusercontent.com/62536923/83712049-ce367200-a65f-11ea-86b6-11518bc56c12.gif)
 
 ### マイページのプロフィールを編集できます。
 ![edit-prof](https://user-images.githubusercontent.com/62536923/83236609-c04f9f80-a1ce-11ea-9ec4-5f07f90b9896.gif)
 
 ### 投稿の検索ができます。
-![search](https://user-images.githubusercontent.com/62536923/83345190-3f69e280-a34b-11ea-8871-c6408eef4108.gif)
+![furima8](https://user-images.githubusercontent.com/62536923/83712045-cbd41800-a65f-11ea-9d2c-edf70d670f0c.gif)
 
 
 
